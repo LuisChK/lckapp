@@ -2,7 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./Components/Navbar/Navbar.js";
-import  ItemListContainer from './Components/ItemListContainer';
+
+import  ItemDetailContainer from './Components/ItemDetailContainer';
 
 
 
@@ -12,8 +13,8 @@ function App() {
     <>
 
       <Navbar />
-      <ItemListContainer texto="Luis"/>
       
+      < ItemDetailContainer />
 
       
     </>
