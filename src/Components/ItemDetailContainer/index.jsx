@@ -1,13 +1,29 @@
 import React, {useState, useEffect} from 'react';
 import ItemDetail from '../ItemDetail';
 
-const bikes = 
-    {id: 1, image: "https://s3.eu-west-1.amazonaws.com/cdn.motorbikemag.es/wp-content/uploads/2021/11/Yamaha-Ténéré-700-2022-47-1200x675.jpg", 
-    title: " Yamaha Tenere 700 "};
+import  {useParams} from 'react-router-dom';
 
+
+
+const bikes = [
+    {id: 1, image: "https://i.postimg.cc/xdYkdntq/tenere.jpg", 
+    title: " Yamaha Tenere 700 "},
+    { id: 2, image:"https://i.postimg.cc/Nf39W1X6/african.jpg", category: "adv",
+title: "African Twin"},
+{ id: 3, image:"https://i.postimg.cc/g23Xdnyf/bmw.jpg", category: "adv",
+title: "BMW GS "},
+{id: 4, image: "https://i.postimg.cc/Y9HTVyr5/suzuki1.jpg", category: "sport",
+title: " Suzuki GSXR 600 "},
+{id: 5, image: "https://i.postimg.cc/BvDdmG05/r61.jpg", category: "sport",
+title: " Yamaha R6 "},
+{id: 6, image: "https://i.postimg.cc/Cx93CxWL/cbr6001.jpg", category: "sport",
+title: " Honda CBR 600 "}
+    
+];
 export const ItemDetailContainer  = () => {
 
     const [data, setData] = useState({});
+    const {detailId} = useParams();
     
     useEffect(() => {
         const getData = new Promise(resolve => {
@@ -15,8 +31,8 @@ export const ItemDetailContainer  = () => {
                 resolve(bikes);
             }, 3000);
         });
-        getData.then(res => setData(res));
-    }, [])
+        getData.then(res => setData(res.find(bike => bike.id === parseInt(detailId) )));
+    }, [detailId])
 
     return (
         < ItemDetail data={data} />

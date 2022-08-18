@@ -17,10 +17,12 @@
     flex-wrap: wrap;
 }
 
-.detail_image {
-    width: 100%;
-
+.detail__image {
+    
+    width: 400px;
+    height: 300px;
 }
+
 
 .content {
     width: 100%;
