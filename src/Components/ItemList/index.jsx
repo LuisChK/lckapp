@@ -5,7 +5,7 @@ import React from 'react';
 
 const ItemList = ({data=[]}) => {
     return (
-        data.map(bike => < Item key={bike.id} info={bike} />)
+        data.map(bikes => < Item key={bikes.id} info={bikes} />)
     );
     
     
